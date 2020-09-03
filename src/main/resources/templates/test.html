@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout::layout-head}">
+    <meta charset="UTF-8">
+    <title>testThymeLeaf</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<div id="container">
+    <div th:replace="layout::layout-navbar">虚拟导航</div>
+</div>
+《福尔摩斯探案集》
+主角:<span th:text="${protagonist}" ></span><br>
+配角：
+<table>
+    <tr >
+        <td th:each="role:${supportingrole}" th:text="${role}"></td>
+    </tr>
+</table>
+<img th:src="@{${dish}}"/>
+<li th:if="${age<18}">尚未成年</li>
+<li th:unless="${age<18}">已成年</li>
+<li th:text="${session.info.ages}">5</li>
+<li th:text="${#dates.format(session.info.time,'yyyy-MM-dd hh:mm:ss')}"></li>
+<div th:replace="layout::layout-footer">脚注</div>
+</body>
+
+</html>
